@@ -1,171 +1,246 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faris M Ilyas - Portfolio</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>Faris M Ilyas - Portfolio & Engineering CV</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        html { scroll-behavior: smooth; }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 selection:bg-sky-500 selection:text-white font-sans">
+<body class="bg-slate-950 text-slate-200 font-sans antialiased grid-bg selection:bg-brand-500 selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 z-50 px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
-            Faris.tech
-        </h1>
-        <div class="flex gap-4 md:gap-6 text-sm font-medium text-slate-300">
-            <a href="#about" class="hover:text-sky-400 transition">Tentang</a>
-            <a href="#skills" class="hover:text-sky-400 transition">Keahlian</a>
-            <a href="#projects" class="hover:text-sky-400 transition">Proyek</a>
-            <a href="#contact" class="hover:text-sky-400 transition">Kontak</a>
+    <!-- Header / Top Bar -->
+    <header class="fixed top-0 w-full z-50 glass-card border-b-0">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-mono text-lg font-bold tracking-wider text-slate-100 flex items-center gap-2">
+                <span class="text-brand-400">&lt;</span>Faris.tech<span class="text-brand-400">/&gt;</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#metrics" class="hover:text-brand-400 transition-colors">Ringkasan</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors">Keahlian Teknis</a>
+                <a href="#projects" class="hover:text-brand-400 transition-colors">Proyek</a>
+                <a href="#contact" class="hover:text-brand-400 transition-colors">Kontak HRD</a>
+            </nav>
+            <a href="https://docs.google.com/document/d/1xq3EbXAaYH54NR5ju08t-5ioC-z7xZRzDKtVPf9QGsk/edit?usp=drive_web" target="_blank" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-500/10 text-brand-400 border border-brand-500/30 hover:bg-brand-500/20 transition-all flex items-center gap-2">
+                <i class="fas fa-file-pdf"></i> Resume PDF
+            </a>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="pt-36 pb-20 px-6 max-w-5xl mx-auto text-center flex flex-col items-center">
-        <span class="px-4 py-1.5 bg-sky-950 text-sky-400 rounded-full text-xs font-semibold tracking-wide border border-sky-800/50 mb-6 flex items-center">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span>AVAILABLE FOR WORK
-        </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
-            Hi, Saya <span class="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Faris M Ilyas</span>
+    <section class="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[85vh]">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400 mb-8">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>SIAP BEKERJA (FULL-TIME / REMOTE / HYBRID)</span>
+        </div>
+
+        <h1 class="text-4xl md:text-7xl font-extrabold text-slate-100 tracking-tight leading-[1.1] mb-6">
+            Membangun Perangkat Lunak Scalable & <br class="hidden md:block"/>
+            <span class="gradient-text">Infrastruktur Server Andal.</span>
         </h1>
-        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
-            Frontend Developer (Next.js & Tailwind CSS), System Administrator Linux, dan Data Analyst Specialist.
+
+        <p class="text-lg md:text-xl text-slate-400 max-w-3xl font-normal leading-relaxed mb-10">
+            Frontend Engineer &amp; System Administrator dengan rekam jejak mengelola infrastruktur server ber-uptime 99.9%, mengembangkan aplikasi web Next.js/Tailwind CSS modern, serta merancang model analisis keuangan bisnis yang terstruktur.
         </p>
-        <div class="flex flex-wrap gap-4 justify-center">
-            <a href="#projects" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold rounded-lg shadow-lg shadow-sky-500/20 transition flex items-center gap-2">
-                <i class="fas fa-briefcase"></i> Lihat Proyek
+
+        <div class="flex flex-wrap gap-4 items-center">
+            <a href="#projects" class="px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-semibold text-sm shadow-lg shadow-brand-500/25 transition-all flex items-center gap-3">
+                <span>Eksplorasi Proyek Teknis</span>
+                <i class="fas fa-arrow-right text-xs"></i>
             </a>
-            <a href="#contact" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg border border-slate-700 transition flex items-center gap-2">
-                <i class="fas fa-envelope"></i> Hubungi Saya
+            <a href="mailto:faris.ilyas@znfx.tech" class="px-7 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fas fa-envelope text-slate-400"></i>
+                <span>Hubungi Saya Langsung</span>
             </a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 px-6 max-w-5xl mx-auto border-t border-slate-900">
-        <h2 class="text-2xl font-bold text-center mb-6 text-sky-400">Tentang Saya</h2>
-        <p class="text-slate-300 leading-relaxed text-center max-w-3xl mx-auto text-base">
-            Praktisi IT dan pengembang perangkat lunak yang berpengalaman dalam membangun aplikasi web modern yang responsif berbasis Next.js dan Tailwind CSS, mengelola infrastruktur server Linux dengan keandalan tinggi (99.9% uptime), serta merancang model pencatatan data keuangan dan analisis bisnis di Excel / Google Sheets secara presisi.
-        </p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 px-6 max-w-5xl mx-auto border-t border-slate-900">
-        <h2 class="text-2xl font-bold text-center mb-10 text-sky-400">Keahlian Utama</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Skill 1 -->
-            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 hover:border-sky-500/50 transition">
-                <div class="text-sky-400 text-3xl mb-4"><i class="fas fa-code"></i></div>
-                <h3 class="font-semibold text-lg text-slate-200 mb-2">Web Development</h3>
-                <p class="text-slate-400 text-sm mb-4">Membangun antarmuka web modern, cepat, dan responsif.</p>
-                <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="px-2.5 py-1 bg-slate-800 text-sky-400 rounded-md border border-slate-700">Next.js</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-sky-400 rounded-md border border-slate-700">React</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-sky-400 rounded-md border border-slate-700">Tailwind CSS</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-sky-400 rounded-md border border-slate-700">JavaScript</span>
-                </div>
+    <!-- Impact & Metrics Section -->
+    <section id="metrics" class="py-12 border-y border-slate-900 bg-slate-950/40">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-1">
+                <div class="text-3xl md:text-4xl font-extrabold font-mono text-slate-100">99.9%</div>
+                <div class="text-xs text-slate-400 font-medium">Server Uptime Achievement</div>
             </div>
-
-            <!-- Skill 2 -->
-            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 hover:border-sky-500/50 transition">
-                <div class="text-emerald-400 text-3xl mb-4"><i class="fas fa-server"></i></div>
-                <h3 class="font-semibold text-lg text-slate-200 mb-2">System Administration</h3>
-                <p class="text-slate-400 text-sm mb-4">Pengelolaan server Linux dan optimasi infrastruktur sistem.</p>
-                <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="px-2.5 py-1 bg-slate-800 text-emerald-400 rounded-md border border-slate-700">Linux (Ubuntu/Debian)</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-emerald-400 rounded-md border border-slate-700">DDoS Mitigation</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-emerald-400 rounded-md border border-slate-700">Networking</span>
-                </div>
+            <div class="space-y-1">
+                <div class="text-3xl md:text-4xl font-extrabold font-mono text-slate-100">1,000+</div>
+                <div class="text-xs text-slate-400 font-medium">Pengguna Aktif Komunitas</div>
             </div>
-
-            <!-- Skill 3 -->
-            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 hover:border-sky-500/50 transition">
-                <div class="text-amber-400 text-3xl mb-4"><i class="fas fa-chart-line"></i></div>
-                <h3 class="font-semibold text-lg text-slate-200 mb-2">Data & Financial Analytics</h3>
-                <p class="text-slate-400 text-sm mb-4">Dasbor visual interaktif dan pemodelan keuangan terautomasi.</p>
-                <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="px-2.5 py-1 bg-slate-800 text-amber-400 rounded-md border border-slate-700">Microsoft Excel</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-amber-400 rounded-md border border-slate-700">Google Sheets</span>
-                    <span class="px-2.5 py-1 bg-slate-800 text-amber-400 rounded-md border border-slate-700">Financial Modeling</span>
-                </div>
+            <div class="space-y-1">
+                <div class="text-3xl md:text-4xl font-extrabold font-mono text-slate-100">Next.js 14</div>
+                <div class="text-xs text-slate-400 font-medium">Arsitektur Frontend Modern</div>
             </div>
-
+            <div class="space-y-1">
+                <div class="text-3xl md:text-4xl font-extrabold font-mono text-slate-100">100%</div>
+                <div class="text-xs text-slate-400 font-medium">Akurasi Formula Finansial[cite: 1, 4]</div>
+            </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 px-6 max-w-5xl mx-auto border-t border-slate-900">
-        <h2 class="text-2xl font-bold text-center mb-10 text-sky-400">Proyek Unggulan</h2>
-        <div class="space-y-8">
-            
-            <!-- Project 1 -->
-            <div class="bg-slate-900/80 rounded-xl border border-slate-800 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center hover:border-slate-700 transition">
-                <div class="w-full md:w-1/2 bg-slate-800/80 rounded-lg h-48 flex flex-col items-center justify-center border border-slate-700 text-slate-400 p-4 text-center">
-                    <i class="fas fa-globe text-4xl text-sky-400 mb-2"></i>
-                    <span class="font-semibold text-slate-200">znfx-web.vercel.app</span>
+    <!-- Core Competencies -->
+    <section id="skills" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+                <span class="text-xs font-mono font-semibold text-brand-400 uppercase tracking-widest">Kompetensi Spesialis</span>
+                <h2 class="text-3xl font-bold text-slate-100 mt-2">Keahlian Teknis &amp; Toolstack</h2>
+            </div>
+            <p class="text-slate-400 text-sm max-w-md">Dikelompokkan berdasarkan area profesional untuk memenuhi kualifikasi standar industri.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Web Dev -->
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-6 border border-sky-500/20">
+                    <i class="fas fa-layer-group"></i>
                 </div>
-                <div class="w-full md:w-1/2">
-                    <h3 class="text-xl font-bold text-slate-100 mb-2">ZNFX Digital Ecosystem</h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        Platform ekosistem web terintegrasi berbasis Next.js dan Tailwind CSS untuk analisis teknikal pasar finansial dan manajemen komunitas.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs mb-4">
-                        <span class="px-2.5 py-1 bg-sky-950 text-sky-400 rounded border border-sky-800">Next.js</span>
-                        <span class="px-2.5 py-1 bg-sky-950 text-sky-400 rounded border border-sky-800">Tailwind</span>
-                        <span class="px-2.5 py-1 bg-sky-950 text-sky-400 rounded border border-sky-800">Vercel</span>
+                <h3 class="text-xl font-bold text-slate-100 mb-3">Frontend Engineering</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Spesialisasi dalam membangun aplikasi web berbasis performa tinggi, UI/UX responsif, dan struktur kode modular.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Next.js</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">React.js</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Tailwind CSS</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">JavaScript</span>
+                </div>
+            </div>
+
+            <!-- SysAdmin -->
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-6 border border-emerald-500/20">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-100 mb-3">Linux System Admin</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Manajemen server Linux production, hardening keamanan sistem, mitigasi serangan DDoS, dan alokasi resource.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Ubuntu Server</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Debian</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Security Hardening</span>
+                </div>
+            </div>
+
+            <!-- Data Analyst -->
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-6 border border-amber-500/20">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-100 mb-3">Financial Analytics</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Pemodelan data keuangan terautomasi, perancangan dashboard arus kas bisnis, serta analisis teknikal pasar.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Excel / Google Sheets</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">Cashflow Modeling</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-800">P&amp;L Statements</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section id="projects" class="py-24 px-6 max-w-6xl mx-auto border-t border-slate-900">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+                <span class="text-xs font-mono font-semibold text-brand-400 uppercase tracking-widest">Bukti Kinerja</span>
+                <h2 class="text-3xl font-bold text-slate-100 mt-2">Studi Kasus &amp; Proyek Unggulan</h2>
+            </div>
+        </div>
+
+        <div class="space-y-12">
+            <div class="glass-card rounded-2xl p-8 md:p-10 flex flex-col lg:flex-row gap-8 items-center">
+                <div class="w-full lg:w-1/2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-2.5 py-1 rounded bg-brand-500/10 text-brand-400 font-mono text-xs font-semibold">WEB ECOSYSTEM</span>
+                        <span class="text-xs text-slate-500 font-mono">LIVE PRODUCTION</span>
                     </div>
-                    <a href="https://znfx-web.vercel.app" target="_blank" class="inline-flex items-center text-sm font-semibold text-sky-400 hover:text-sky-300">
-                        Kunjungi Live Web <i class="fas fa-external-link-alt ml-2 text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="bg-slate-900/80 rounded-xl border border-slate-800 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center hover:border-slate-700 transition">
-                <div class="w-full md:w-1/2 bg-slate-800/80 rounded-lg h-48 flex flex-col items-center justify-center border border-slate-700 text-slate-400 p-4 text-center">
-                    <i class="fas fa-file-excel text-4xl text-emerald-400 mb-2"></i>
-                    <span class="font-semibold text-slate-200">Financial Modeling & Cash Flow</span>
-                </div>
-                <div class="w-full md:w-1/2">
-                    <h3 class="text-xl font-bold text-slate-100 mb-2">Sistem Pencatatan Keuangan Excel & Sheets</h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        Template spreadsheet profesional terautomasi mencakup Profit & Loss Statement, Net Worth Tracker, dan dasbor arus kas bisnis.
+                    <h3 class="text-2xl font-bold text-slate-100">ZNFX Digital Trading Ecosystem</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Arsitektur platform web terpusat yang melayani 1.000+ anggota aktif komunitas trader. Mengintegrasikan antarmuka responsif Next.js dan sistem navigasi analisis pasar.
                     </p>
-                    <div class="flex flex-wrap gap-2 text-xs mb-4">
-                        <span class="px-2.5 py-1 bg-amber-950 text-amber-400 rounded border border-amber-800">Excel</span>
-                        <span class="px-2.5 py-1 bg-amber-950 text-amber-400 rounded border border-amber-800">Google Sheets</span>
-                        <span class="px-2.5 py-1 bg-amber-950 text-amber-400 rounded border border-amber-800">Analytics</span>
+                    <div class="pt-4 flex items-center gap-4">
+                        <a href="https://znfx-web.vercel.app" target="_blank" class="px-5 py-2.5 rounded-lg bg-brand-500 text-slate-950 font-semibold text-xs hover:bg-brand-400 transition-colors inline-flex items-center gap-2">
+                            <span>Buka Platform Live</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                    <span class="text-sm text-slate-500 italic flex items-center gap-1"><i class="fas fa-lock text-xs"></i> Disediakan atas permintaan</span>
+                </div>
+                <div class="w-full lg:w-1/2 bg-slate-900 rounded-xl p-6 border border-slate-800 font-mono text-xs">
+                    <div class="flex items-center justify-between text-slate-500 pb-4 border-b border-slate-800 mb-4">
+                        <span class="flex items-center gap-2"><i class="fas fa-terminal text-brand-400"></i> system-metrics.log</span>
+                        <span>STATUS: ONLINE</span>
+                    </div>
+                    <div class="space-y-2 text-slate-300">
+                        <p><span class="text-slate-500">&gt; Framework:</span> Next.js 14 (App Router)</p>
+                        <p><span class="text-slate-500">&gt; Styling:</span> Tailwind CSS v3.4</p>
+                        <p><span class="text-slate-500">&gt; Active Users:</span> 1,000+ Members</p>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Contact & Footer -->
-    <footer id="contact" class="py-16 border-t border-slate-900 text-center px-6">
-        <h2 class="text-2xl font-bold mb-4 text-sky-400">Mari Bekerja Sama</h2>
-        <p class="text-slate-400 text-sm max-w-md mx-auto mb-6">
-            Tertarik untuk berkolaborasi atau membutuhkan jasa web development, sysadmin, maupun analisis data?
-        </p>
-        <div class="mb-8">
-            <a href="mailto:faris.ilyas@znfx.tech" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-sky-400 font-semibold rounded-lg border border-slate-700 transition inline-flex items-center gap-2">
-                <i class="fas fa-paper-plane"></i> faris.ilyas@znfx.tech
-            </a>
+    <!-- Call to Action -->
+    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <div class="glass-card rounded-3xl p-10 md:p-16 border border-brand-500/20 relative overflow-hidden">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 mb-6">Siap Berkontribusi pada Tim Anda.</h2>
+            <p class="text-slate-400 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                Saya dapat dihubungi secara langsung untuk wawancara teknis atau diskusi posisi Junior/Mid Frontend Developer, Linux SysAdmin, maupun Data Analyst.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center items-center">
+                <a href="mailto:faris.ilyas@znfx.tech" class="px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-sm shadow-xl shadow-brand-500/25 transition-all flex items-center gap-3">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Kirim Email Penawaran Kerja</span>
+                </a>
+            </div>
         </div>
-        <p class="text-slate-600 text-xs">
-            © 2026 Faris M Ilyas. Built with HTML & Tailwind CSS.
-        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-900 text-center font-mono text-xs text-slate-500">
+        <div>© 2026 Faris M Ilyas. All Rights Reserved.</div>
     </footer>
 
 </body>
-</html>
+                    </html>
